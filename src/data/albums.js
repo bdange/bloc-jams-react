@@ -10,7 +10,7 @@ export default[{
       { id: 3, title: 'Red', duration: '268.45', audioSrc: '/assets/music/red.mp3' },
       { id: 4, title: 'Pink', duration: '153.14', audioSrc: '/assets/music/pink.mp3' },
       { id: 5, title: 'Magenta', duration: '374.22', audioSrc: '/assets/music/magenta.mp3' }
-  ]
+  ]  
 }, {
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
