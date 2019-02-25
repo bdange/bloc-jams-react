@@ -1,6 +1,6 @@
 export default[{
   title: 'The Colors',
-  artist: 'Pablo Picasso',
+  artist: 'Pablo Picasso',  
   releaseInfo: '1909 Spanish Records',
   albumCover: '/assets/images/album_covers/01.jpg',
   slug: 'the-colors',
@@ -10,7 +10,7 @@ export default[{
       { id: 3, title: 'Red', duration: '268.45', audioSrc: '/assets/music/red.mp3' },
       { id: 4, title: 'Pink', duration: '153.14', audioSrc: '/assets/music/pink.mp3' },
       { id: 5, title: 'Magenta', duration: '374.22', audioSrc: '/assets/music/magenta.mp3' }
-  ]  
+  ]
 }, {
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
