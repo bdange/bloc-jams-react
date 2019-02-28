@@ -11,7 +11,7 @@ class Album extends Component {
 
     this.state = {
       album: album
-    };
+    }; 
   }
 
   render() {
