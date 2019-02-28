@@ -44,7 +44,7 @@ class Album extends Component {
    }
 
    hoverOn(index) {
-     this.setState({isHoverOn: true });
+     this.setState({isHoverOn: index });
    }
 
    hoverOff(index) {
@@ -52,15 +52,16 @@ class Album extends Component {
    }
 
    handleHover(song, index){
-     const isSameSong = this.state.currentSong === song;
-     if (this.state.isHoverOn === index){
-       return <span className="ion-md-play" />;
-     } else if (this.state.isPlaying && isSameSong){
-       return <span className="ion-md-pause" />;
-     } else {
-       return <span className="song-number">{song.id}</span>;
-     }
-   }
+      const isSameSong = this.state.currentSong === song;
+      if (this.state.isPlaying && isSameSong){
+        return <span className="ion-md-pause" />;
+      } else if (this.state.isHoverOn === index){
+        return <span className="ion-md-play" />;
+      } else {
+        return index + 1;
+      }
+    }
+
 
   render() {
     return (
