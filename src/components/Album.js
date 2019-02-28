@@ -44,7 +44,7 @@ class Album extends Component {
    }
 
    hoverOn(index) {
-     this.setState({isHoverOn: true });
+     this.setState({isHoverOn: index });
    }
 
    hoverOff(index) {
@@ -52,15 +52,16 @@ class Album extends Component {
    }
 
    handleHover(song, index){
-     const isSameSong = this.state.currentSong === song;
-     if (this.state.isHoverOn === index){
-       return <span className="ion-md-play" />;
-     } else if (this.state.isPlaying && isSameSong){
-       return <span className="ion-md-pause" />;
-     } else {
-       return song;
-     }
-   }
+      const isSameSong = this.state.currentSong === song;
+      if (this.state.isPlaying && isSameSong){
+        return <span className="ion-md-pause" />;
+      } else if (this.state.isHoverOn === index){
+        return <span className="ion-md-play" />;
+      } else {
+        return index + 1;
+      }
+    }
+
 
   render() {
     return (
@@ -88,9 +89,7 @@ class Album extends Component {
                onMouseLeave={() => this.hoverOff()}
                >
                      <td className="song-number">
-                            {song.id}
-                    <button><span className="ion-md-play"></span></button>
-                    <button><span className="ion-md-pause"></span></button>
+                            {this.handleHover(song, index)}
                      </td>
                      <td className="song-title">{song.title}</td>
                      <td className="song-duration">{song.duration}</td>
