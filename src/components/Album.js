@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import albumData from './../data/albums'
+import albumData from './../data/albums';
 
 class Album extends Component {
   constructor(props) {
@@ -10,9 +10,58 @@ class Album extends Component {
     });
 
     this.state = {
-      album: album
-    }; 
+      album: album,
+      currentSong: album.songs[0],
+      isPlaying: false
+    };
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
   }
+
+  play() {
+    this.audioElement.play();
+    this.setState({ isPlaying: true });
+  }
+
+  pause() {
+  this.audioElement.pause();
+  this.setState({ isPlaying: false });
+}
+
+  setSong(song) {
+  this.audioElement.src = song.audioSrc;
+  this.setState({ currentSong: song });
+}
+
+   handleSongClick(song) {
+     const isSameSong = this.state.currentSong === song;
+     if (this.state.isPlaying && isSameSong) {
+       this.pause();
+     } else {
+       if (!isSameSong) { this.setSong(song); }
+       this.play();
+     }
+   }
+
+   hoverOn(index) {
+     this.setState({isHoverOn: index });
+   }
+
+   hoverOff(index) {
+     this.setState({isHoverOn: false});
+   }
+
+   handleHover(song, index){
+      const isSameSong = this.state.currentSong === song;
+      if (this.state.isPlaying && isSameSong){
+        return <span className="ion-md-pause" />;
+      } else if (this.state.isHoverOn === index){
+        return <span className="ion-md-play" />;
+      } else {
+        return index + 1;
+      }
+    }
+
 
   render() {
     return (
@@ -34,8 +83,14 @@ class Album extends Component {
   <tbody>
   {
     this.state.album.songs.map( (song, index) =>
-                  <tr className="song" key={index}>
-                     <td className="song-number">{song.id}</td>
+               <tr className="song" key={index}
+               onClick={() => this.handleSongClick(song)}
+               onMouseEnter={() => this.hoverOn(index)}
+               onMouseLeave={() => this.hoverOff()}
+               >
+                     <td className="song-number">
+                            {this.handleHover(song, index)}
+                     </td>
                      <td className="song-title">{song.title}</td>
                      <td className="song-duration">{song.duration}</td>
                   </tr>
