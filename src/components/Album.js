@@ -109,7 +109,7 @@ class Album extends Component {
      const newVolume= this.audioElement.volume * e.target.value;
      this.audioElement.currentVolume = newVolume;
      this.setState({currentVolume: newVolume});
-   }
+   }   
 
    hoverOn(index) {
      this.setState({isHoverOn: index });
