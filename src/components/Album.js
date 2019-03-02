@@ -13,7 +13,7 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      currentVolume: 0,
+      currentVolume: 50,
       currentTime: 0,
       duration: album.songs[0].duration,
       volume: album.songs[0].volume,
@@ -109,7 +109,7 @@ class Album extends Component {
      const newVolume= this.audioElement.volume * e.target.value;
      this.audioElement.currentVolume = newVolume;
      this.setState({currentVolume: newVolume});
-   }   
+   }
 
    hoverOn(index) {
      this.setState({isHoverOn: index });
@@ -171,8 +171,8 @@ class Album extends Component {
         currentSong={this.state.currentSong}
         currentTime={this.audioElement.currentTime}
         duration={this.audioElement.duration}
-        currentVolume={this.state.currentVolume}
-        volume={this.state.volume}
+        currentVolume={this.audioElement.currentVolume}
+        volume={this.audioElement.volume}
         handleSongClick={() => this.handleSongClick(this.state.currentSong)}
         handlePrevClick={() => this.handlePrevClick()}
         handleNextClick={() => this.handleNextClick()}
