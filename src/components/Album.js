@@ -122,7 +122,7 @@ class Album extends Component {
     }
 
     formatTime(seconds){
-     return seconds ? `${((Math.floor(seconds/60)%60) ^ 0) +':'+ ((seconds%60) ^0)}`: '-:--';
+     return seconds ? `${Math.floor(seconds/60)}:${Number(seconds % 60 / 100).toFixed(2).substr(2)}`: '-:--';
     }
 
   render() {
@@ -154,7 +154,7 @@ class Album extends Component {
                             {this.handleHover(song, index)}
                      </td>
                      <td className="song-title">{song.title}</td>
-                     <td className="song-duration">{song.duration}</td>
+                     <td className="song-duration">{this.formatTime(song.duration)}</td>
                   </tr>
     )
   }
@@ -173,7 +173,7 @@ class Album extends Component {
         handleTimeChange={(e) => this.handleTimeChange(e)}
         handleVolumeChange={(e) => this.handleVolumeChange(e)}
         formatTime={(time) => this.formatTime(time)}
-      />
+      /><br />
       </section>
     );
   }
