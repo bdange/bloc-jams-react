@@ -9,12 +9,43 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, "Menlo", Monaco, Consolas,
     monospace;
 }
 
-
-table.center {
+table {
   margin-left:auto;
   margin-right:auto;
+  text-align: left;
+  width: 145px;
+  height: 135px;
+}
+
+a {
+  color: #323940;
+  margin: 5px;
+}
+
+header{
+  width: auto;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+img{
+  width: 300px;
+  length: 300px;
+}
+
+.artist{
+  font-size: 1em;
+}
+
+#album-title{
+  font-size: 2em;
+  margin-bottom: 1px;
+}
+
+#release-info {
+  font-size:0.5em;
 }

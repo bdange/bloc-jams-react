@@ -1,6 +1,6 @@
 export default[{
   title: 'The Colors',
-  artist: 'Pablo Picasso',  
+  artist: 'Pablo Picasso',
   releaseInfo: '1909 Spanish Records',
   albumCover: '/assets/images/album_covers/01.jpg',
   slug: 'the-colors',
